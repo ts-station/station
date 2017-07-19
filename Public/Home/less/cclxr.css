@@ -1,0 +1,126 @@
+/*header  start */
+header {
+  height: 1rem;
+  border-bottom: 1px solid #44b549;
+  position: relative;
+  background-color: #44b549;
+}
+header h3 {
+  text-align: center;
+  color: #fff;
+  font: normal 400 0.36rem/1rem "Microsoft Yahei ";
+}
+header a {
+  position: absolute;
+  left: .3rem;
+  color: #fff;
+  font: normal 100 0.36rem/1rem "Microsoft Yahei ";
+  transform: scale(1, 2);
+}
+/*header  end */
+/*select-box start*/
+.select-box {
+  border-bottom: 1px solid #ccc;
+}
+.select-box .w ul li {
+  float: left;
+  width: 50%;
+  height: 0.8rem;
+  padding: 0.3rem;
+  text-align: center;
+  font: normal 100 0.3rem/0.45rem "Microsoft Yahei ";
+}
+.select-box .w ul li a.select-box-ed {
+  border-bottom: 5px solid #44b549;
+  display: block;
+  color: #44b549;
+}
+.select-con-1,
+.select-con-2 {
+  display: none;
+  background-color: #f7f7f7;
+  padding-top: .2rem;
+}
+.select-con-1 ul li,
+.select-con-2 ul li {
+  background-color: #fff;
+  font: normal 100 0.3rem/0.8rem "Microsoft Yahei ";
+  border-bottom: 1px solid #ccc;
+  padding: 0rem .3rem  ;
+}
+.select-con-1 ul li input,
+.select-con-2 ul li input {
+  width: 2rem;
+  height: .7rem;
+  float: right;
+  border: none;
+  font: normal 100 0.2rem/0.8rem "Microsoft Yahei ";
+  outline: none;
+  text-align: right;
+}
+.select-con-1 ul li:nth-child(2) p,
+.select-con-2 ul li:nth-child(2) p {
+  float: right;
+  font: normal 100 0.2rem/0.8rem "Microsoft Yahei ";
+}
+.select-con-1 {
+  display: block;
+}
+#sub {
+  height: .8rem;
+  width: 80%;
+  text-align: center;
+  margin: .2rem  auto;
+  display: block;
+  border-radius: 5px;
+  background-color: #44b549;
+  border: none;
+  color: #f7f7f7;
+  font: normal 100 0.3rem/0.8rem "Microsoft Yahei ";
+}
+/*儿童票日期选择*/
+#demo_inp1 {
+  width: 2.2rem;
+  height: .7rem;
+}
+/*select-box end*/
+/*成人票弹窗 start*/
+.adult-alert {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.adult-alert .adult-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.adult-alert .adult-box ul li,
+.adult-alert .adult-box ul p {
+  font: normal 100 0.28rem/0.8rem "Microsoft Yahei ";
+  color: #000;
+  background-color: #f7f7f7;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.adult-alert .adult-box ul p {
+  margin-top: .2rem;
+  color: red;
+}
+/*成人票弹窗 end*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+/*儿童票日期选择*/
+table.lcui_border {
+  position: relative;
+  top: 0;
+}

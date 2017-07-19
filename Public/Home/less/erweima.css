@@ -1,0 +1,59 @@
+/*header  start */
+header {
+  height: 1rem;
+  position: relative;
+  background-color: #44b549;
+}
+header span {
+  position: absolute;
+  left: .75rem;
+  text-align: right;
+  color: #fff;
+  font: normal 400 0.36rem/1rem "Microsoft Yahei ";
+}
+header a {
+  position: absolute;
+  left: .3rem;
+  color: #fff;
+  font: normal 100 0.36rem/1rem "Microsoft Yahei ";
+  transform: scale(1, 2);
+}
+/*header  end */
+/*content s*/
+.content {
+  padding: 0 .42rem;
+  background-color: white;
+}
+.content .conTop {
+  margin: .22rem 0;
+}
+.content .conTop p {
+  line-height: .87rem;
+  font-size: .3rem;
+  color: #c0c1c5;
+}
+.conEnd {
+  padding: 0 .42rem;
+  background-color: white;
+  text-align: center;
+}
+.conEnd p:nth-child(1) {
+  font-size: .36rem;
+  color: #303030;
+  line-height: 1.45rem;
+}
+.conEnd p:nth-child(2) {
+  font-size: .3rem;
+  color: #c0c1c5;
+}
+.conEnd p:nth-child(2) span {
+  color: #303030;
+}
+.conEnd div {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px solid #c0c1c5;
+  margin: 1.2rem 0;
+}
+/*content e*/

@@ -1,0 +1,21 @@
+[ 2017-06-12T19:51:45+08:00 ] 127.0.0.1 /station/index.php/Home/search/runs_search
+ERR: _STORAGE_WRITE_ERROR_:./Application/Runtime/Cache/Home/1b74850462bfd28bbb6c3ec3eee4cb37.php
+
+[ 2017-06-12T19:51:49+08:00 ] 127.0.0.1 /station/index.php/Home/search/runs_search
+ERR: _STORAGE_WRITE_ERROR_:./Application/Runtime/Cache/Home/1b74850462bfd28bbb6c3ec3eee4cb37.php
+
+[ 2017-06-12T19:51:50+08:00 ] 127.0.0.1 /station/index.php/Home/search/runs_search
+ERR: _STORAGE_WRITE_ERROR_:./Application/Runtime/Cache/Home/1b74850462bfd28bbb6c3ec3eee4cb37.php
+
+[ 2017-06-12T20:05:31+08:00 ] 127.0.0.1 /station/index.php/Home/order/payment
+ERR: 515:[Microsoft][SQL Server Native Client 11.0][SQL Server]不能将值 NULL 插入列 'th_CustomerID'，表 '1000da.dbo.ts_Order'；列不允许有 Null 值。INSERT 失败。
+ [ SQL语句 ] : INSERT INTO [ts_order] ([th_OrderID],[th_Name],[th_Tel],[th_PriceTotal],[th_CustomerID],[th_NoOfRunsID],[th_NoOfRunsdate]) VALUES ('20170612200531100013','22','13545187293','0',NULL,'hc1','2017-02-18')
+
+[ 2017-06-12T20:05:39+08:00 ] 127.0.0.1 /station/index.php/Home/order/payment
+ERR: 515:[Microsoft][SQL Server Native Client 11.0][SQL Server]不能将值 NULL 插入列 'th_CustomerID'，表 '1000da.dbo.ts_Order'；列不允许有 Null 值。INSERT 失败。
+ [ SQL语句 ] : INSERT INTO [ts_order] ([th_OrderID],[th_Name],[th_Tel],[th_PriceTotal],[th_CustomerID],[th_NoOfRunsID],[th_NoOfRunsdate]) VALUES ('20170612200539100013','22','13545187293','0',NULL,'hc1','2017-02-18')
+
+[ 2017-06-12T20:53:41+08:00 ] 127.0.0.1 /station/index.php/Home/order/order_list
+ERR: 4104:[Microsoft][SQL Server Native Client 11.0][SQL Server]无法绑定由多个部分组成的标识符 "o.th_ID"。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY o.th_ID desc) AS ROW_NUMBER FROM (SELECT  * FROM ts_order o JOIN ts_Ticketmodel AS t ON o.th_NoOfRunsID = t.tml_NoOfRunsID AND o.th_NoOfRunsdate = t.tml_NoOfRunsdate  WHERE o.th_CustomerID = '001' ) AS thinkphp) AS T1 
+

@@ -1,0 +1,207 @@
+header {
+  height: 4.5rem;
+  width: 100%;
+  background: url("../img/iue.jpg") no-repeat center;
+  background-size: 100% 100%;
+  color: #FFFEFF;
+}
+header p.banxin {
+  font-size: 0.22rem;
+  line-height: 0.22rem;
+  padding-top: 3.2rem;
+  color: #fff;
+}
+header a {
+  display: block;
+  height: 0.35rem;
+  padding-top: 0.4rem;
+  font-size: 0.34rem;
+  line-height: 0.35rem;
+  text-decoration: none;
+  color: #FFFEFF;
+  position: relative;
+}
+header a > span:nth-child(1) {
+  position: absolute;
+  top: 0.4rem;
+  left: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0;
+  width: 0.45rem;
+  height: 0.35rem;
+  background: url("../img/icons/1.png") no-repeat 50% 50%;
+  background-size: contain;
+}
+header a > button {
+  display: inline-block;
+  width: 6.3rem;
+  font-size: 0.36rem;
+  text-align: left;
+  height: 0.36rem;
+  line-height: 0.38rem;
+  padding: 0;
+  margin: 0 0 0 0.57rem ;
+  background-color: #44b549;
+  color: #fff;
+  border: none;
+}
+header a > span:last-child {
+  position: absolute;
+  top: 0.4rem;
+  right: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0;
+  width: 0.18rem;
+  height: 0.32rem;
+  background: url("../img/icons/2.png") no-repeat 50% 50%;
+  background-size: contain;
+}
+header a:visited {
+  color: #FFFEFF;
+}
+.coten {
+  width: 100%;
+  color: #525252;
+  background-color: #fff;
+}
+.coten > div {
+  border-bottom: 1px solid #F7F7F7;
+}
+.coten div:nth-child(1) div:nth-child(1) {
+  height: 2rem;
+}
+.coten div:nth-child(1) div:nth-child(1) p {
+  font-size: 0.22rem;
+  line-height: 0.22rem;
+  padding-top: 0.47rem;
+  margin: 0;
+}
+.coten div:nth-child(1) div:nth-child(1) a {
+  display: block;
+  height: 0.55rem;
+  padding-top: 0.4rem;
+  font-size: 0.34rem;
+  line-height: 0.55rem;
+  text-decoration: none;
+  color: #525252;
+}
+.coten div:nth-child(1) div:nth-child(1) a span:nth-child(1) {
+  float: left;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0;
+  width: 0.45rem;
+  height: 0.55rem;
+  background: url("../img/icons/3.png") no-repeat 50% 50%;
+  background-size: contain;
+}
+.coten div:nth-child(1) div:nth-child(1) a span:nth-child(2) {
+  float: left;
+  display: inline-block;
+  height: 0.55rem;
+  line-height: 0.55rem;
+  padding-left: 0.14rem;
+  overflow: hidden;
+}
+.coten div:nth-child(1) div:nth-child(1) a span:nth-child(3) {
+  float: right;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0;
+  width: 0.18rem;
+  height: 0.32rem;
+  margin: 0.11rem 0;
+  background: url("../img/icons/5.png") no-repeat 50% 50%;
+  background-size: contain;
+}
+.coten div:nth-child(2) div:nth-child(1) {
+  height: 2rem;
+}
+.coten div:nth-child(2) div:nth-child(1) p {
+  font-size: 0.22rem;
+  line-height: 0.22rem;
+  padding-top: 0.47rem;
+  margin: 0;
+}
+.coten div:nth-child(2) div:nth-child(1) a {
+  display: block;
+  height: 0.55rem;
+  padding-top: 0.4rem;
+  font-size: 0.34rem;
+  line-height: 0.55rem;
+  text-decoration: none;
+  color: #525252;
+}
+.coten div:nth-child(2) div:nth-child(1) a span:nth-child(1) {
+  float: left;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0;
+  width: 0.45rem;
+  height: 0.55rem;
+  background: url("../img/icons/4.png") no-repeat 50% 50%;
+  background-size: contain;
+}
+.coten div:nth-child(2) div:nth-child(1) a span:nth-child(2) {
+  float: left;
+  display: inline-block;
+  width: 6.01rem;
+  height: 0.55rem;
+  line-height: 0.55rem;
+  padding-left: 0.14rem;
+  overflow: hidden;
+}
+.coten div:nth-child(2) div:nth-child(1) a span:nth-child(3) {
+  float: right;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0;
+  width: 0.18rem;
+  height: 0.32rem;
+  margin: 0.11rem 0;
+  background: url("../img/icons/5.png") no-repeat 50% 50%;
+  background-size: contain;
+}
+.refer {
+  display: block;
+  width: 6.65rem;
+  height: 0.8rem;
+  border-radius: 0.1rem;
+  margin: 0.3rem auto;
+  border: none;
+  background-color: #44b549;
+  color: #FFFEFF;
+  font-size: 0.32rem;
+}
+.feater {
+  display: inline-block;
+  width: 100%;
+  height: 0.8rem;
+  background-color: #FFFEFF;
+  text-decoration: none;
+  position: relative;
+}
+.feater div div:nth-child(1) {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.3rem;
+  box-sizing: border-box;
+  line-height: 0;
+  width: 0.29rem;
+  height: 0.29rem;
+  background: url("../img/icons/6.png") no-repeat 50% 50%;
+  background-size: contain;
+}
+.feater div div:nth-child(2) {
+  display: inline-block;
+  width: 100%;
+  line-height: 0.8rem;
+  padding-left: 0.35rem;
+  color: #9D9D9D;
+  font-size: 0.22rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

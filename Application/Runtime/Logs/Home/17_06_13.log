@@ -1,0 +1,13 @@
+[ 2017-06-13T19:45:12+08:00 ] 127.0.0.1 /station/index.php/Home/customer/add_purchaser_member
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000852s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002037s ]
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'ts_customerpurchasermember' [ RunTime:0.0333s ]
+SQL: INSERT INTO [ts_customerpurchasermember] ([cpm_CustomerID],[cpm_PurchaserName],[cpm_Date]) VALUES ('001','111','2017-06-14') [ RunTime:0.0150s ]
+

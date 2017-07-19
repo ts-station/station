@@ -1,0 +1,42 @@
+/*header  start */
+header {
+  height: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  background-color: #44b549;
+}
+header span {
+  position: absolute;
+  left: .75rem;
+  text-align: right;
+  color: #fff;
+  font: normal 400 0.36rem/1rem "Microsoft Yahei ";
+}
+header a {
+  position: absolute;
+  left: .3rem;
+  color: #fff;
+  font: normal 100 0.36rem/1rem "Microsoft Yahei ";
+  transform: scale(1, 2);
+}
+/*header  end */
+/*content s*/
+.content {
+  padding: .56rem .42rem 0 .42rem;
+}
+.content .con-top p:nth-child(1) {
+  font-size: .28rem;
+  color: #9c9c9c;
+  margin-bottom: .22rem;
+}
+.content .con-top p:nth-child(2) {
+  font-size: .15rem;
+  margin-bottom: .22rem;
+  color: #bfbfbf;
+}
+.content .con-b p {
+  font-size: .22rem;
+  line-height: .7rem;
+  color: #9c9c9c;
+}
+/*content e*/

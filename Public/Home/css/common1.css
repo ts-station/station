@@ -1,0 +1,55 @@
+
+/*公共样式*/
+body{
+    background-color: #F7F7F7;
+    margin: 0;
+    padding: 0;
+}
+
+.banxin {
+    width: 6.9rem;
+    margin: 0 auto;
+}
+
+
+html,body,ul,li,p,h1,h2,h3,img,input,span {
+    margin:0;
+    padding:0;
+}
+
+input,img {
+    border: 0;
+}
+ul {
+    list-style: none;
+}
+body {
+    font-size: 12px;
+    color: #434343;
+    font-family: "微软雅黑";
+    background: #F7F7F7;
+}
+.clearfix:after {
+    content: "";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+a {
+    color: #434343;
+    text-decoration: none;
+}
+a:hover {
+    color: #0266A3;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}

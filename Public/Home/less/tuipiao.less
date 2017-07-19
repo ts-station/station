@@ -1,0 +1,239 @@
+@cgreen: #44b549;
+@bgc:#f7f7f7;
+@border-bottom:#ccc;
+@gary:#e5e5e5;
+@fC:#c0c1c5;
+@money:#ff9c22;
+/*header  start */
+header {
+  height: 1rem;
+  position: relative;
+  background-color: @cgreen;
+  span {
+    position: absolute;
+    left: .75rem;
+    text-align: right;
+    color: #fff;
+    font: normal 400 0.36rem/1rem "Microsoft Yahei ";
+  }
+  a {
+    position: absolute;
+    left: .3rem;
+    color: #fff;
+    font: normal 100 0.36rem/1rem "Microsoft Yahei ";
+    transform: scale(1, 2);
+  }
+}
+
+/*header  end */
+/*content s*/
+.content{
+  margin-bottom: .19rem;
+  .first{
+    padding: .28rem .42rem .36rem .42rem;
+    height: 1.2rem;
+    background-color: white;
+    border-bottom: 1px solid @gary;
+    text-align: center;
+    position: relative;
+    line-height: .3rem;
+    .first-l{
+      width: 33.33%;
+      span:nth-child(1){
+        width: .45rem;
+        height: .59rem;
+        position: absolute;
+        left: .42rem;
+        background: url("../img/icons/16.png") no-repeat;
+        background-size: 100%;
+      }
+      p:nth-child(2){
+        font-size: .28rem;
+        color: #979797;
+      }
+      p:nth-child(3){
+        font-size: .18rem;
+        color: #979797;
+      }
+    }
+    .first-c{
+      width: 33.33%;
+      p:nth-child(1){
+        font-size: .18rem;
+        color: #979797;
+      }
+      p:nth-child(2){
+        font-size: .18rem;
+        color: #979797;
+      }
+    }
+    .first-r{
+      width: 33.33%;
+      p:nth-child(1){
+        font-size: .18rem;
+        color: #979797;
+      }
+      p:nth-child(2){
+        font-size: .18rem;
+        color: #979797;
+        span:nth-child(1){
+          font-size: .18rem;
+          color: @money;
+        }
+        span:nth-child(2){
+          font-size: .24rem;
+          color: @money;
+        }
+      }
+    }
+  }
+  .second  p{
+    padding: 0 .42rem;
+    background-color: white;
+    border-bottom: 1px solid @gary;
+    line-height: 1.2rem;
+    font-size: .3rem;
+    color: #303030;
+  }
+  .third {
+    padding: .22rem .42rem;
+    height: 1.2rem;
+    border-bottom: 1px solid @gary;
+    background-color: white;
+    .third-l p:nth-child(1){
+      font-size: .3rem;
+      color: #303030;
+    }
+    .third-l p:nth-child(2){
+      font-size: .24rem;
+      color: #989898;
+    }
+    .third-r{
+      width: .421rem;
+      height: .421rem;
+      margin: .11rem 0;
+      background: url("../img/icons/19.png") no-repeat;
+      background-size: 100%;
+      border-radius: 5px;
+      border: .01rem solid @gary;
+    }
+  }
+}
+/*content e*/
+/*footer s*/
+footer{
+  .footer-f>p {
+    padding: 0 .42rem;
+    background-color: white;
+    border-bottom: 1px solid @gary;
+    line-height: 1.2rem;
+    font-size: .3rem;
+    color: #303030;
+  }
+  .footer-s {
+    padding: 0 .42rem;
+    background-color: white;
+    border-bottom: 1px solid @gary;
+    line-height: .87rem;
+    .f-s-l {
+      p{
+        font-size: .3rem;
+        color: @fC;
+      }
+      span {
+        font-size: .18rem;
+        color: @fC;
+      }
+    }
+    .f-s-r {
+      p {
+        font-size: .42rem;
+        color: @money;
+        span {
+          font-size: .3rem;
+          color: @money;
+        }
+      }
+    }
+  }
+  .footer-t{
+    padding: 0 .42rem;
+    background-color: white;
+    border-bottom: 1px solid @gary;
+    line-height: .87rem;
+    .f-t-l {
+      p{
+        font-size: .3rem;
+        color: @fC;
+      }
+    }
+    .f-t-r {
+      p {
+        font-size: .36rem;
+        color: #4a4a4a;
+        span {
+          font-size: .36rem;
+          color: #4a4a4a;
+        }
+      }
+    }
+  }
+  .footer-b{
+    padding: 0 .42rem;
+    background-color: white;
+    border-bottom: 1px solid @gary;
+    line-height: .87rem;
+    .f-b-l {
+      p{
+        font-size: .3rem;
+        color: @fC;
+      }
+    }
+    .f-b-r {
+      p {
+        font-size: .36rem;
+        color: #4a4a4a;
+        span {
+          font-size: .36rem;
+          color: #4a4a4a;
+        }
+      }
+    }
+  }
+}
+/*footer e*/
+/*flxed s*/
+.fixedBox {
+  position: fixed;
+  bottom: 0rem;
+  .fixed-l{
+    background-color: #141c2a;
+    line-height: 1rem;
+    height: 1rem;
+    width: 5.1rem;
+    padding: 0 .42rem;
+    p {
+      font-size: .36rem;
+      color: @money;
+      span:nth-child(1){
+        font-size: .18rem;
+        color: #989898;
+      }
+      span:nth-child(2){
+        font-size: .24rem;
+        color: @money;
+      }
+
+    }
+  }
+  .fixed-r{
+    background-color: @money;
+    line-height: 1rem;
+    height: 1rem;
+    width: 2.4rem;
+    font-size: .3rem;
+    color: #fff;
+    text-align: center;
+  }
+}
+/*flxed e*/

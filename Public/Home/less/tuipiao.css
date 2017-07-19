@@ -1,0 +1,217 @@
+/*header  start */
+header {
+  height: 1rem;
+  position: relative;
+  background-color: #44b549;
+}
+header span {
+  position: absolute;
+  left: .75rem;
+  text-align: right;
+  color: #fff;
+  font: normal 400 0.36rem/1rem "Microsoft Yahei ";
+}
+header a {
+  position: absolute;
+  left: .3rem;
+  color: #fff;
+  font: normal 100 0.36rem/1rem "Microsoft Yahei ";
+  transform: scale(1, 2);
+}
+/*header  end */
+/*content s*/
+.content {
+  margin-bottom: .19rem;
+}
+.content .first {
+  padding: .28rem .42rem .36rem .42rem;
+  height: 1.2rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+  position: relative;
+  line-height: .3rem;
+}
+.content .first .first-l {
+  width: 33.33%;
+}
+.content .first .first-l span:nth-child(1) {
+  width: .45rem;
+  height: .59rem;
+  position: absolute;
+  left: .42rem;
+  background: url("../img/icons/16.png") no-repeat;
+  background-size: 100%;
+}
+.content .first .first-l p:nth-child(2) {
+  font-size: .28rem;
+  color: #979797;
+}
+.content .first .first-l p:nth-child(3) {
+  font-size: .18rem;
+  color: #979797;
+}
+.content .first .first-c {
+  width: 33.33%;
+}
+.content .first .first-c p:nth-child(1) {
+  font-size: .18rem;
+  color: #979797;
+}
+.content .first .first-c p:nth-child(2) {
+  font-size: .18rem;
+  color: #979797;
+}
+.content .first .first-r {
+  width: 33.33%;
+}
+.content .first .first-r p:nth-child(1) {
+  font-size: .18rem;
+  color: #979797;
+}
+.content .first .first-r p:nth-child(2) {
+  font-size: .18rem;
+  color: #979797;
+}
+.content .first .first-r p:nth-child(2) span:nth-child(1) {
+  font-size: .18rem;
+  color: #ff9c22;
+}
+.content .first .first-r p:nth-child(2) span:nth-child(2) {
+  font-size: .24rem;
+  color: #ff9c22;
+}
+.content .second p {
+  padding: 0 .42rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 1.2rem;
+  font-size: .3rem;
+  color: #303030;
+}
+.content .third {
+  padding: .22rem .42rem;
+  height: 1.2rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: white;
+}
+.content .third .third-l p:nth-child(1) {
+  font-size: .3rem;
+  color: #303030;
+}
+.content .third .third-l p:nth-child(2) {
+  font-size: .24rem;
+  color: #989898;
+}
+.content .third .third-r {
+  width: .421rem;
+  height: .421rem;
+  margin: .11rem 0;
+  background: url("../img/icons/19.png") no-repeat;
+  background-size: 100%;
+  border-radius: 5px;
+  border: 0.01rem solid #e5e5e5;
+}
+/*content e*/
+/*footer s*/
+footer .footer-f > p {
+  padding: 0 .42rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 1.2rem;
+  font-size: .3rem;
+  color: #303030;
+}
+footer .footer-s {
+  padding: 0 .42rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: .87rem;
+}
+footer .footer-s .f-s-l p {
+  font-size: .3rem;
+  color: #c0c1c5;
+}
+footer .footer-s .f-s-l span {
+  font-size: .18rem;
+  color: #c0c1c5;
+}
+footer .footer-s .f-s-r p {
+  font-size: .42rem;
+  color: #ff9c22;
+}
+footer .footer-s .f-s-r p span {
+  font-size: .3rem;
+  color: #ff9c22;
+}
+footer .footer-t {
+  padding: 0 .42rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: .87rem;
+}
+footer .footer-t .f-t-l p {
+  font-size: .3rem;
+  color: #c0c1c5;
+}
+footer .footer-t .f-t-r p {
+  font-size: .36rem;
+  color: #4a4a4a;
+}
+footer .footer-t .f-t-r p span {
+  font-size: .36rem;
+  color: #4a4a4a;
+}
+footer .footer-b {
+  padding: 0 .42rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: .87rem;
+}
+footer .footer-b .f-b-l p {
+  font-size: .3rem;
+  color: #c0c1c5;
+}
+footer .footer-b .f-b-r p {
+  font-size: .36rem;
+  color: #4a4a4a;
+}
+footer .footer-b .f-b-r p span {
+  font-size: .36rem;
+  color: #4a4a4a;
+}
+/*footer e*/
+/*flxed s*/
+.fixedBox {
+  position: fixed;
+  bottom: 0rem;
+}
+.fixedBox .fixed-l {
+  background-color: #141c2a;
+  line-height: 1rem;
+  height: 1rem;
+  width: 5.1rem;
+  padding: 0 .42rem;
+}
+.fixedBox .fixed-l p {
+  font-size: .36rem;
+  color: #ff9c22;
+}
+.fixedBox .fixed-l p span:nth-child(1) {
+  font-size: .18rem;
+  color: #989898;
+}
+.fixedBox .fixed-l p span:nth-child(2) {
+  font-size: .24rem;
+  color: #ff9c22;
+}
+.fixedBox .fixed-r {
+  background-color: #ff9c22;
+  line-height: 1rem;
+  height: 1rem;
+  width: 2.4rem;
+  font-size: .3rem;
+  color: #fff;
+  text-align: center;
+}
+/*flxed e*/

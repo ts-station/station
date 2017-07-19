@@ -1,0 +1,65 @@
+@cgreen: #44b549;
+@bgc:#f7f7f7;
+@border-bottom:#ccc;
+@gary:#e5e5e5;
+@fC:#c0c1c5;
+/*header  start */
+header {
+  height: 1rem;
+  position: relative;
+  background-color: @cgreen;
+  span {
+    position: absolute;
+    left: .75rem;
+    text-align: right;
+    color: #fff;
+    font: normal 400 0.36rem/1rem "Microsoft Yahei ";
+  }
+  a {
+    position: absolute;
+    left: .3rem;
+    color: #fff;
+    font: normal 100 0.36rem/1rem "Microsoft Yahei ";
+    transform: scale(1, 2);
+  }
+}
+
+/*header  end */
+/*content s*/
+.content{
+  padding: 0 .42rem;
+  background-color: white;
+  .conTop {
+    margin: .22rem 0;
+    p{
+      line-height: .87rem;
+      font-size: .3rem;
+      color: @fC;
+    }
+  }
+}
+.conEnd{
+  padding: 0 .42rem;
+  background-color: white;
+  text-align: center;
+  p:nth-child(1){
+    font-size: .36rem;
+    color: #303030;
+    line-height: 1.45rem;
+  }
+  p:nth-child(2){
+    font-size: .3rem;
+    color: @fC;
+    span{
+      color: #303030;
+    }
+  }
+  div{
+    display: inline-block;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid @fC;
+    margin: 1.2rem 0;
+  }
+}
+/*content e*/

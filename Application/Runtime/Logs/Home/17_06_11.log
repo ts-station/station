@@ -1,0 +1,33 @@
+[ 2017-06-11T17:00:28+08:00 ] 127.0.0.1 /station/index.php/Home/customer/add_purchaser_member
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003339s ]
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'ts_customerpurchasermember' [ RunTime:0.0009s ]
+SQL: SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [ts_customerpurchasermember] WHERE [cpm_Card] = '22222222' ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.0314s ]
+SQL: INSERT INTO [ts_customerpurchasermember] ([cpm_CustomerID],[cpm_PurchaserName],[cpm_CardType],[cpm_Card],[cpm_Tel]) VALUES ('001','222222','0','22222222','222222') [ RunTime:0.0745s ]
+
+[ 2017-06-11T20:33:35+08:00 ] 127.0.0.1 /station/index.php/Home/order/order_list
+ERR: Think\Model:aelect方法不存在！
+
+[ 2017-06-11T20:44:22+08:00 ] 127.0.0.1 /station/index.php/Home/order/order_list
+ERR: 248:[Microsoft][SQL Server Native Client 11.0][SQL Server]转换 varchar 值 '20170611203100100002' 时溢出了整数列。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM ts_order o WHERE o.th_OrderID = 1 ) AS thinkphp) AS T1 
+
+[ 2017-06-11T21:43:54+08:00 ] 127.0.0.1 /station/index.php/Home/order/payment
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [ts_customerpurchaser] () VALUES ()
+
+[ 2017-06-11T22:15:25+08:00 ] 127.0.0.1 /station/index.php/Home/order/order_info?orderid=100009
+ERR: 207:[Microsoft][SQL Server Native Client 11.0][SQL Server]列名 'th_ID' 无效。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM ts_customerpurchaser p JOIN ts_CustomerPurchaserMember AS m ON p.cp_CustomerID = m.cpm_ID  WHERE p.th_ID = '100009' ) AS thinkphp) AS T1 
+
+[ 2017-06-11T22:16:45+08:00 ] 127.0.0.1 /station/index.php/Home/order/order_info?orderid=100009
+ERR: 207:[Microsoft][SQL Server Native Client 11.0][SQL Server]列名 'th_ID' 无效。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM ts_customerpurchaser p WHERE p.th_ID = '100009' ) AS thinkphp) AS T1 
+

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常用乘车人</title>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common1.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/less/reder.css">
+</head>
+<body>
+    <header class="w">
+        <a href="#" onClick="javascript:history.back(-1);">&lt;</a>
+        <span>常用乘车人</span>
+        <button class="fr">确认</button>
+    </header>
+
+    <button class="btn-add">
+        <span></span><span>新增常用联系人</span><span></span>
+    </button>
+
+    <div class="cont">
+        <volist name="list" id="f">
+            <if condition="in_array($f['cpm_id'],$passenger_arr)"><ul class="yes">
+                <else /><ul class="no">
+            </if>
+
+            <li class="check-box">
+                <span></span>
+                <span>{$f['cpm_purchasername']}</span>
+                <span>{$f['cpm_card']}</span>
+                <input type="text"  value="{$f['cpm_id']}" style="display: none" name="passenger[]">
+            </li>
+            </ul>
+        </volist>
+    </div>
+</body>
+<script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+<script src="__PUBLIC__/Home/js/common.js"></script>
+<script>
+    $(function(){
+        $(".btn-add").click(function(){
+            window.location.href="../customer/add_purchaser_member";
+        });
+        $(".check-box").click(function(){
+            var class_type=$(this).parent().attr('class');
+            if(class_type=='no'){
+                $(this).parent().attr('class','yes');
+            }
+            if(class_type=='yes'){
+                $(this).parent().attr('class','no');
+            }
+        });
+        $(".fr").click(function(){
+            var aa=0;
+            $("input[name='passenger[]']").each(function(index,item) {
+                        var class_type = $(this).parent().parent().attr('class');
+                        if (class_type == 'yes') {
+                            if (aa == 0) {
+                                aa = $(this).val();
+                            }
+                            else {
+                                aa = aa + ',' + $(this).val();
+                            }
+                        }
+                    }
+            );
+            // alert(aa);
+            var runsid='{$runsid}';
+            runsid=encodeURIComponent(runsid);
+            var runsdate='{$runsdate}';
+            window.location.href="edit_order?passenger="+aa+"&runsid="+runsid+"&runsdate="+runsdate;;
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>班次查询结果</title>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/less/demand.css">
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="fl" onClick="javascript:history.back(-1);"></a>
+        <div class="banxin header-t">
+            <div>
+                <p>{$data.0.begin}-{$data.0.end}</p>
+            </div>
+        </div>
+        <div class="banxin header-b">
+            <button class="fl">前一天</button><button><span></span>08月08日{$time}<span>今日</span></button><button class="fr">后一天</button>
+        </div>
+    </div>
+
+    <div class="cont">
+        <ul class="have">
+            <!--<li>
+                <div class="banxin">
+                    <div>07:00</div>
+                    <div>
+                        <div>
+                            <span></span>
+                            <span>泸州南</span>
+
+                        </div>
+                        <div>
+                            <span></span>
+                            <span>大型高一</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span>99张</span>
+                        <span></span>
+                        <span>固定班267</span>
+                        <span>携童3张</span>
+                    </div>
+                    <div>
+                        <div>
+                            <span></span>
+                            <span>成都北</span>
+                        </div>
+                        <div>
+                            <span>¥</span>
+                            <span>290</span>
+                        </div>
+                    </div>
+                </div>
+            </li>-->
+            <volist name="data" id="f">
+                <if condition="$f['leave_seats']">
+                <li runsid="{$f['runsid']}" runsdate="{$f['runsdate']}" class="ticket-add">
+                    <div class="banxin">
+                        <div>{$f['time']}</div>
+                        <div>
+                            <div>
+                                <span></span>
+                                <span>{$f['begin']}</span>
+
+                            </div>
+                            <div>
+                                <span></span>
+                                <span>{$f['busmodel']}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>{$f['leave_seats']}张</span>
+                            <span></span>
+                            <span>固定班267</span>
+                            <span>携童3张</span>
+                        </div>
+                        <div>
+                            <div>
+                                <span></span>
+                                <span>{$f['end']}</span>
+                            </div>
+                            <div>
+                                <span>¥</span>
+                                <span>{$f['price']}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                </if>
+            </volist>
+
+        </ul>
+        <ul class="none">
+            <volist name="data" id="f">
+                <if condition="!$f['leave_seats']">
+                    <li>
+                        <div class="banxin">
+                            <div>{$f['time']}</div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <span>{$f['begin']}</span>
+
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <span>{$f['busmodel']}</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span>已售完</span>
+                                <span></span>
+                                <span>固定班267</span>
+                                <span>携童3张</span>
+                            </div>
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <span>{$f['end']}</span>
+                                </div>
+                                <div>
+                                    <span>¥</span>
+                                    <span>{$f['price']}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </if>
+            </volist>
+            <li>
+                <div class="banxin">
+                    <div>07:00</div>
+                    <div>
+                        <div>
+                            <span></span>
+                            <span>泸州南</span>
+
+                        </div>
+                        <div>
+                            <span></span>
+                            <span>大型高一</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span>已售完</span>
+                        <span></span>
+                        <span>固定班267</span>
+                    </div>
+                    <div>
+                        <div>
+                            <span></span>
+                            <span>成都北</span>
+                        </div>
+                        <div>
+                            <span>¥</span>
+                            <span>290</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="but">
+        <button class="fl" id="button1">
+            <span></span>
+            <span>发车</span>
+        </button><button class="fr" id="button2">
+            <span></span>
+            <span>票价</span>
+    </button>
+    </div>
+    <form action="result_search">
+        <input type="submit" value="查 询" style="display: none" id="search-submit">
+        <input type="text" name="time" value="{$time}" style="display: none">
+        <input type="text" name="begin" value="{$begin}" style="display: none">
+        <input type="text" name="end" value="{$end}" style="display: none">
+        <input type="text" name="type" value="0" style="display: none" id="list-type">
+    </form>
+
+
+</body>
+<script src="__PUBLIC__/Home/js/common.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#button1").click(function(){
+           $("#list-type").val(0);
+            $("#search-submit").click();
+        });
+        $("#button2").click(function(){
+            $("#list-type").val(1);
+            $("#search-submit").click();
+        });
+        $(".ticket-add").click(function(){
+           var runsid=$(this).attr('runsid');
+           var runsdate=$(this).attr('runsdate');
+            window.location.href="../order/edit_order?runsid="+encodeURIComponent(runsid)+"&runsdate="+runsdate;
+        });
+
+    });
+
+</script>
+</html>

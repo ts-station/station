@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常用乘车人</title>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/less/reder.css">
+</head>
+<body>
+    <div class="header">
+    <a href="#" onClick="javascript:history.back(-1);"></a><div>常用乘车人</div><button class="fr">确认</button>
+    </div>
+
+    <button class="btn-add">
+        <span></span><span>新增常用联系人</span><span></span>
+    </button>
+
+    <div class="cont">
+        <ul>
+            <li>
+                <span></span>
+                <span>王麻子</span>
+                <span>512929292929292929</span>
+            </li>
+        </ul>
+       <!-- <ul>
+            <li>
+                <span></span>
+                <span>王麻子</span>
+                <span>512929292929292929</span>
+            </li>
+        </ul>-->
+        <ul>
+        <volist name="list" id="f">
+                <li>
+                    <span></span>
+                    <span>{$f['cpm_purchasername']}</span>
+                    <span>{$f['cpm_card']}</span>
+                    <input type="text"  value="{$f['cpm_id']}" style="display: none" name="passenger[]">
+                </li>
+        </volist>
+        </ul>
+    </div>
+</body>
+<script src="__PUBLIC__/Home/js/common.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.js"></script>
+<script>
+    $(function(){
+        $(".btn-add").click(function(){
+            window.location.href="../customer/add_purchaser_member";
+        });
+        $(".fr").click(function(){
+            var aa=0;
+            $("input[name='passenger[]']").each(function(index,item){
+                if(index==0){
+                    aa=$(this).val();
+                }
+                else {
+                    aa = aa + ',' + $(this).val();
+                }
+
+              }
+            );
+           // alert(aa);
+            var runsid='{$runsid}';
+            runsid=encodeURIComponent(runsid);
+            var runsdate='{$runsdate}';
+            window.location.href="edit_order?passenger="+aa+"&runsid="+runsid+"&runsdate="+runsdate;;
+        });
+    });
+</script>
+</html>

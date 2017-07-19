@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" style="font-size: 100px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>班次查询</title>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/less/index.css">
+</head>
+<body>
+<form action="result_search" method="post">
+<header>
+    <p class="banxin">请选择出发时间</p>
+    <a href="#" class="banxin">
+        <span></span><span id="dat"></span><span></span>
+        <input type="text" name="time" value="2017-02-18" style="display: none">
+    </a>
+</header>
+
+    <div class="coten">
+        <div>
+            <div class="banxin">
+                <p>选择出发城市</p>
+                <a href="#">
+                    <span></span><span>泸州南</span><span></span>
+                    <input type="text" name="begin" value="001" style="display: none">
+                </a>
+            </div>
+        </div>
+        <div>
+            <div class="banxin">
+                <p>选择到达城市</p>
+                <a href="3">
+                    <span></span><span>成都北</span><span></span>
+                    <input type="text" name="end" value="003" style="display: none">
+                </a>
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="查 询" style="display: none" id="search-submit">
+</form>
+<button id="search-button">查 询</button>
+<a class="feater" href="#">
+    <div class="banxin">
+        <div></div><div>江西、陕西开始执行实名制购物票...</div>
+    </div>
+</a>
+</body>
+<!--等比适配js-->
+<script src="__PUBLIC__/Home/js/common.js"></script>
+<script>
+
+        function $(selector) { return document.querySelector(selector) }
+
+        var dat = dat || $('#dat');
+        function update(){
+            var t = new Date();
+            dat.innerHTML = t.getMonth()+1+"月"+t.getDate()+"日";
+             console.log(t.getMonth())
+            console.log(t.getDate())
+//            setTimeout(update, 1000);
+        };
+
+         var search_button = document.getElementById("search-button");
+         var search_submit = document.getElementById("search-submit");
+            search_button.onclick = function() {
+                search_submit.click();
+            }
+
+        update()
+</script>
+</html>

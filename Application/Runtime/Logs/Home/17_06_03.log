@@ -1,0 +1,36 @@
+[ 2017-06-03T17:04:15+08:00 ] 127.0.0.1 /station/index.php/Home/order/edit_order?runsid=%27+xa001%27&runsdate=2017-02-18
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“xa001”附近有语法错误。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [ts_ticketmodel] WHERE [tml_NoOfRunsID] = '\' xa001\'' AND [tml_NoOfRunsdate] = '2017-02-18' ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1)
+
+[ 2017-06-03T17:04:51+08:00 ] 127.0.0.1 /station/index.php/Home/order/edit_order?runsid=%27+xa001%27&runsdate=2017-02-18
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“xa001”附近有语法错误。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [ts_ticketmodel] WHERE [tml_NoOfRunsID] = '\' xa001\'' AND [tml_NoOfRunsdate] = '2017-02-18' ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1)
+
+[ 2017-06-03T17:07:12+08:00 ] 127.0.0.1 /station/index.php/Home/order/edit_order?runsid=%27+xa001%27&runsdate=2017-02-18
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“xa001”附近有语法错误。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [ts_ticketmodel] WHERE [tml_NoOfRunsID] = '+\' xa001\'' AND [tml_NoOfRunsdate] = '2017-02-18' ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1)
+
+[ 2017-06-03T17:07:44+08:00 ] 127.0.0.1 /station/index.php/Home/order/edit_order?runsid=%27+xa001%27&runsdate=2017-02-18
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“xa001”附近有语法错误。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [ts_ticketmodel] WHERE [tml_NoOfRunsID] = '+\' xa001\'' AND [tml_NoOfRunsdate] = '2017-02-18' ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1)
+
+[ 2017-06-03T17:25:40+08:00 ] 127.0.0.1 /station/index.php/Home/search/result_search
+ERR: 207:[Microsoft][SQL Server Native Client 11.0][SQL Server]列名 'pd_NoOfRunsdate' 无效。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM ts_ticketmodel t LEFT JOIN ts_PriceDetail AS p ON p.pd_NoOfRunsID = t.tml_NoOfRunsID AND p.pd_NoOfRunsdate = t.pd_NoOfRunsdate  WHERE t.tml_BeginstationID = '001' AND t.tml_EndstationID = '003' AND t.tml_NoOfRunsdate = '2017-02-18' ) AS thinkphp) AS T1 
+
+[ 2017-06-03T17:32:48+08:00 ] 127.0.0.1 /station/index.php/Home/order/edit_order?runsid=%2Bxa001&runsdate=2017-02-18
+ERR: 208:[Microsoft][SQL Server Native Client 11.0][SQL Server]对象名 'ts_line_info' 无效。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [ts_line_info] WHERE [li_LineID] = null ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1)
+
+[ 2017-06-03T17:33:32+08:00 ] 127.0.0.1 /station/index.php/Home/order/edit_order?runsid=%2Bxa001&runsdate=2017-02-18
+ERR: 208:[Microsoft][SQL Server Native Client 11.0][SQL Server]对象名 'ts_line_info' 无效。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [ts_line_info] WHERE [li_LineID] = '+XA' ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1)
+
+[ 2017-06-03T17:34:13+08:00 ] 127.0.0.1 /station/index.php/Home/order/edit_order?runsid=%2Bxa001&runsdate=2017-02-18
+ERR: 208:[Microsoft][SQL Server Native Client 11.0][SQL Server]对象名 'ts_line_info' 无效。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [ts_line_info] WHERE [li_LineID] = '+XA' ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1)
+
+[ 2017-06-03T17:34:25+08:00 ] 127.0.0.1 /station/index.php/Home/order/edit_order?runsid=%2Bxa001&runsdate=2017-02-18
+ERR: 208:[Microsoft][SQL Server Native Client 11.0][SQL Server]对象名 'ts_line_info' 无效。
+ [ SQL语句 ] : SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [ts_line_info] WHERE [li_LineID] = '+XA' ) AS thinkphp) AS T1 
+
