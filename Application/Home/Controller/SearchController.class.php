@@ -106,6 +106,49 @@ class SearchController extends BaseController {
 		$this->assign('data',$data);
 		$this->display();
 	}
-
+	public function ajax_search(){
+		$BeginStationID = I('begin');
+		$EndStationID = I('end');
+		$NoOfRunsdate = I('time');
+		$type = I('type');
+		$page = I("page");
+		$page_size = I("page_size");
+		if (empty($page)) {
+			$page = 1;
+		}
+		if (empty($page_size)) {
+			$page_size = 10;
+		}
+		if (empty($BeginStationID)) {
+			$this->error('发车点不能为空','runs_search');
+		}
+		if (empty($BeginStationID)) {
+			$this->error('终点站不能为空','runs_search');
+		}
+		if (empty($NoOfRunsdate)) {
+			$this->error('发车时间不能为空','runs_search');
+		}
+		$list = D('Ticketmodel')->search($BeginStationID, $EndStationID, $NoOfRunsdate,$type, $page, $page_size);
+		$data = array();
+		foreach ($list as $k => $v) {
+			$arr = array(
+					'runsid' => $v['tml_noofrunsid'],
+					'runsdate' => $v['tml_noofrunsdate'],
+					'time' => $v['tml_noofrunstime'],
+					'begin' => $v['tml_beginstation'],
+					'end' => $v['tml_endstation'],
+					'busmodel' => $v['tml_busmodel'],
+					'leave_seats' => $v['tml_leaveseats'],
+					'price' => $v['pd_fullprice'],
+			);
+			$data[] = $arr;
+		}
+		//var_dump($data);
+		$this->assign('begin',$BeginStationID);
+		$this->assign('end',$EndStationID);
+		$this->assign('time',$NoOfRunsdate);
+		$this->assign('data',$data);
+		$this->display();
+	}
 
 }//class end

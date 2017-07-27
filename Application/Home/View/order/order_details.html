@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>我的订单</title>
-    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css">
-    <link rel="stylesheet" href="__PUBLIC__/Home/less/orderDetails.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/less/orderDetails2.css">
     <script src="__PUBLIC__/Home/js/jquery.js"></script>
     <script src="__PUBLIC__/Home/js/jquery.qrcode.min.js"></script>
     <script src="__PUBLIC__/Home/js/common.js"></script>
@@ -22,14 +22,12 @@
 <div class="content">
     <!--top s-->
     <div class="con-top clearfix">
-        <p>待支付</p>
-        <p id="newPay">立即支付</p>
+        <p>订票成功</p>
+        <p>取票验证码: <span>26456584401</span></p>
     </div>
     <!--top e-->
     <!--con s-->
     <div class="con-con">
-        <!--<input type="button" id="btn" value="免费获取验证码" onclick="settime(this)" />-->
-        <div class="con-con-t">请在<span><span id="minute">{$m}</span>分<span id="second">{$s}</span>秒</span>内完成支付逾期将自动取消订单</div>
         <div class="con-con-t2"><p>车票信息</p></div>
         <div class="con-con-c clearfix">
             <div><span>{$order_info.tml_beginstation}</span></div>
@@ -46,6 +44,7 @@
                 <span>{$f.cpm_purchasername}<span>全票</span></span>
                 <span>{$f.cpm_tel}</span>
                 <span>保险</span>
+                <span>未取票</span>
             </div>
         </volist>
         <div class="con-con-b2 clearfix">
@@ -56,48 +55,14 @@
             <p>保险</p>
             <p>乘客意外伤害保险 (3元) <span>&gt;</span></p>
         </div>
-        <!--footer s-->
-        <footer>
-            <div class="footer-t">
-                <p>订单编号: {$order_info.th_orderid}</p>
-            </div>
-            <div class="footer-b">
-                <p>订单时间: {$order_info.th_noofrunsdate} {$order_info.tml_noofrunstime}</p>
-            </div>
-        </footer>
-        <!--footer e-->
-        <div class="footer-btn">
-            <a href="time_up?order_id={$order_info.th_id}"><p>作废订单</p></a>
-            <a href="payment?order_id={$order_info.th_id}"><p>继续支付</p></a>
-        </div>
     </div>
     <!--con e-->
-
 </div>
 <!--content e-->
 
 
 </body>
-<script src="__PUBLIC__/Home/js/jquery.js"></script>
 <script>
-    var m = {$m};//传个分钟数到这里
-    var s = {$s};
-    function showtime(){
-        document.getElementById('minute').innerHTML = m;
-        document.getElementById('second').innerHTML = s;
-        s = s-1;
-        if(s<0){
-            m = m -1;
-            s = 59
-        }
-        if(m<0){
-            //window.location='http://www.ewceo.com';//倒计时结束跳转到www.ewceo.com
-            //window.location.href="time_up?orderid="+{$order_info.th_id};
-        }
-    }
-    clearInterval(settime);
-    var settime = setInterval(function(){
-        showtime();
-    },1000);
+
 </script>
 </html>

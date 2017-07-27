@@ -52,7 +52,15 @@
         <!--top s-->
         <div class="con-top clearfix">
             <div class="con-top-l fl">固定班</div>
-            <div class="con-top-r fr" style="color: #989898">订票成功</div>
+
+            <if condition="$f['th_status'] eq 1 ">
+            <div class="con-top-r fr" style="color: #989898">已废弃</div>
+            <elseif condition="$f['th_status'] eq 2"/>
+                <div class="con-top-r fr" style="color: #989898">订票成功</div>
+
+            <else />
+                <div class="con-top-r fr">待支付</div>
+             </if>
         </div>
         <!--top e-->
         <!--con s-->

@@ -2,6 +2,17 @@
 namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
+	public function pay(){
+		$aaa = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx7a6f30cb15ed2e41&secret=7f8c6005dd823917a61d55075c8791bd');
+		var_dump($aaa);
+		/*$order_sn = 98667;
+		$openId = '';
+		$jsApiParameters = wxpay($openId,'江南极客',$order_sn,1);
+		$this->assign(array(
+				'data' => $jsApiParameters
+		));
+		$this->display();*/
+	}
 
 	public function arrive(){
 		$this->display();

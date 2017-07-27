@@ -161,6 +161,10 @@
             var runsdate=$(this).attr('runsdate');
             window.location.href="../order/edit_order?runsid="+encodeURIComponent(runsid)+"&runsdate="+runsdate;
         });
+        $('.but button').click(function(){
+            alert($(this).attr('class'));
+        });
+
 
     });
 
