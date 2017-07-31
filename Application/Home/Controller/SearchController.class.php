@@ -107,9 +107,15 @@ class SearchController extends BaseController {
 		$this->display();
 	}
 	public function ajax_search(){
-		$BeginStationID = I('begin');
+		$BeginStationID = '001';// I('begin');
+		$EndStationID = '002';//I('end');
+		$NoOfRunsdate = '2017-02-18';//I('time');
+		/*$BeginStationID =  I('begin');
 		$EndStationID = I('end');
-		$NoOfRunsdate = I('time');
+		$NoOfRunsdate = I('time');*/
+		$time =  I('');
+		//$time = $_POST['time'];
+		//$this->ajaxReturn($time);
 		$type = I('type');
 		$page = I("page");
 		$page_size = I("page_size");
@@ -119,16 +125,9 @@ class SearchController extends BaseController {
 		if (empty($page_size)) {
 			$page_size = 10;
 		}
-		if (empty($BeginStationID)) {
-			$this->error('发车点不能为空','runs_search');
-		}
-		if (empty($BeginStationID)) {
-			$this->error('终点站不能为空','runs_search');
-		}
-		if (empty($NoOfRunsdate)) {
-			$this->error('发车时间不能为空','runs_search');
-		}
+
 		$list = D('Ticketmodel')->search($BeginStationID, $EndStationID, $NoOfRunsdate,$type, $page, $page_size);
+
 		$data = array();
 		foreach ($list as $k => $v) {
 			$arr = array(
@@ -144,11 +143,7 @@ class SearchController extends BaseController {
 			$data[] = $arr;
 		}
 		//var_dump($data);
-		$this->assign('begin',$BeginStationID);
-		$this->assign('end',$EndStationID);
-		$this->assign('time',$NoOfRunsdate);
-		$this->assign('data',$data);
-		$this->display();
+		$this->ajaxReturn($data);
 	}
 
 }//class end

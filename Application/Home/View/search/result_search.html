@@ -18,16 +18,23 @@
             </div>
         </div>
         <div class="banxin header-b">
-            <button class="fl">前一天</button><button><span></span>08月08日<span>今日</span></button><button class="fr">后一天</button>
+            <button class="fl" onclick="one_date(0)">前一天</button><button><span></span>{$time}<span></span></button><button class="fr"  onclick="one_date(1)">后一天</button>
         </div>
     </div>
 
+    <form action="result_search" method="post">
+        <input type="text" name="time" value="{$time}" style="display: none" id="time">
+        <input type="text" name="begin" value="{$begin}" style="display: none" id="begin">
+        <input type="text" name="end" value="{$end}" style="display: none" id="end">
+        <input type="submit" value="查 询" style="display: none" id="search-submit">
+    </form>
+
+
     <div class="cont">
         <ul class="have">
-
             <volist name="data" id="f">
                 <if condition="$f['leave_seats']">
-                    <li runsid="{$f['runsid']}" runsdate="{$f['runsdate']}" class="ticket-add">
+                    <li runsid="{$f['runsid']}" runsdate="{$f['runsdate']}" class="ticket-add have-color">
                         <div class="banxin">
                             <div>{$f['time']}</div>
                             <div>
@@ -63,11 +70,11 @@
                 </if>
             </volist>
 
-        </ul>
-        <ul class="none">
+        <!--</ul>
+        <ul class="none">-->
             <volist name="data" id="f">
                 <if condition="!$f['leave_seats']">
-                    <li>
+                    <li class="none-color">
                         <div class="banxin">
                             <div>{$f['time']}</div>
                             <div>
@@ -101,7 +108,7 @@
                     </li>
                 </if>
             </volist>
-            <li>
+            <!--<li>
                 <div class="banxin">
                     <div>07:00</div>
                     <div>
@@ -131,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li>-->
         </ul>
     </div>
     <div class="but">
@@ -147,6 +154,7 @@
 <script src="__PUBLIC__/Home/js/common.js">
 </script><script src="__PUBLIC__/Home/js/jquery.js"></script>
 <script>
+
     $(document).ready(function(){
         $("#button1").click(function(){
             $("#list-type").val(0);
@@ -164,9 +172,114 @@
         $('.but button').click(function(){
             alert($(this).attr('class'));
         });
+        $('#yesterday').click(function(){
+            alert(date);
+            //var date = $('#time').val();var date = new Date("{$time}");
+            date = date.valueOf();
+            var date = date - 24 * 60 * 60 * 1000;
+            alert(date);
 
+            var date = new Date(date);
+            date =date.getFullYear()+"-" + (date.getMonth()+1) + "-" + date.getDate();
+            console.log(date);
+            $('#time').val(date);
+        });
 
     });
+    var load_flag=false;
+    $(function(){
+        $(window).scroll(function(){
+            if(load_flag){
+                return;
+            }
+            var totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+            if(totalheight>=$(document).height()){
+                $("#loadmore").show();
+                load_flag=true;
+                loadMore();
+            }
+        });
+    });
+    function loadMore(){
+        var list = new Array();
+        var obj = {
+            "time":$('#time').attr('value'),
+            "begin":$('#begin').attr('value'),
+            "end":$('#end').attr('value'),
+        };
+        $.ajax({
+            type:'post',
+            url:"ajax_search",
+            data:obj,
+            dataType:'json',
+            success:function(result){
+                console.log(result);
+                $.each( result, function(i , n){
+                    console.log(n );
+                    var str= ' <li class="none-color"><div class="banxin"><div>'+ n.time +'</div><div> <div><span>' +
+                            '</span><span> '+ n.begin +' </span></div><div><span></span><span> '+ n.busmodel +' </span></div>' +
+                            '</div><div><span>已售完</span><span></span><span>固定班267</span><span>携童3张</span></div>' +
+                            '<div><div><span></span><span>  '+ n.end +' </span></div><div><span>¥</span><span>'+ n.time +
+                            '</span></div></div></div></li>';
+                    $('.have').append(str);
+                });
+            }
+        });
+
+
+        /*$.ajax({
+            type: "post",
+            url: "http://127.0.0.1/station/home/search/ajax_search",
+            // data sent is json
+            contentType: "application/json; charset=utf-8",
+            // Post 方式，data参数不能为空""，
+            //如果不传参数，也要写成"{}"，否则contentType将不能附加在Request Headers中。
+            data: "time="+2222,
+            // data in response will expected json
+            dataType: "json",
+            anysc: false,
+            success: function (result) {
+                console.log( result );
+                console.log(123);
+                $.each( result, function(i, n){
+                    console.log( n );
+                   var str= ' <li class="none-color"><div class="banxin"><div>'+ n.time +'</div><div> <div><span>' +
+                    '</span><span> n.time </span></div><div><span></span><span> n.time </span></div>' +
+                    '</div><div><span>已售完</span><span></span><span>固定班267</span><span>携童3张</span></div>' +
+                    '<div><div><span></span><span> n.time </span></div><div><span>¥</span><span>'+ n.time +
+                    '</span></div></div></div></li>';
+                    $('.have').append(str);
+                });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown + ':' + textStatus); // 错误处理
+            }
+        });*/
+    }
+    var time = "{$time}";
+    function one_date(n){
+        var date = new Date('"'+time+'"');
+        date = date.valueOf();
+        if(n==1){
+            var date = date + 24 * 60 * 60 * 1000;
+        }else{
+            var date = date - 24 * 60 * 60 * 1000;
+        }
+        var date = new Date(date);
+        var month = date.getMonth()+1;
+
+        if(month<10){
+            month='0'+month;
+        }
+        var day = date.getDate();
+
+        if(day<10){
+            day='0'+day;
+        }
+        time =date.getFullYear()+"-" + month + "-" + day;
+        $('#time').attr('value',time);
+        $('#search-submit').click();
+    }
 
 </script>
 </html>

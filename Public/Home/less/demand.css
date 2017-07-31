@@ -64,7 +64,7 @@
 .cont > .have > li {
   display: block;
   width: 100%;
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
   border-bottom: 1px solid #E5E5E5;
 }
 .cont > .have > li > div {
@@ -197,8 +197,14 @@
 .cont > .none > li {
   display: block;
   width: 100%;
-  background-color: #F0F0F0;
+  /*background-color: #F0F0F0;*/
   border-bottom: 1px solid #E5E5E5;
+}
+.have-color{
+  background-color: #FFFFFF;
+}
+.none-color{
+  background-color: #F0F0F0;
 }
 .cont > .none > li > div {
   height: 1.8rem;

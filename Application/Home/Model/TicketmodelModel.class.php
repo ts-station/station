@@ -27,7 +27,7 @@ class TicketmodelModel extends Model {
         $list=$this->alias('t')
             ->join('LEFT JOIN ts_PriceDetail AS p ON p.pd_NoOfRunsID = t.tml_NoOfRunsID AND p.pd_NoOfRunsdate = t.tml_NoOfRunsdate')
             ->where($map)
-           // ->page($page,$page_size)
+            ->page($page,$page_size)
             ->select();
         //echo $this->getlastsql();
         return $list;
