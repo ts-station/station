@@ -107,12 +107,12 @@ class SearchController extends BaseController {
 		$this->display();
 	}
 	public function ajax_search(){
-		$BeginStationID = '001';// I('begin');
+		/*$BeginStationID = '001';// I('begin');
 		$EndStationID = '002';//I('end');
-		$NoOfRunsdate = '2017-02-18';//I('time');
-		/*$BeginStationID =  I('begin');
+		$NoOfRunsdate = '2017-02-18';//I('time');*/
+		$BeginStationID =  I('begin');
 		$EndStationID = I('end');
-		$NoOfRunsdate = I('time');*/
+		$NoOfRunsdate = I('time');
 		$time =  I('');
 		//$time = $_POST['time'];
 		//$this->ajaxReturn($time);
@@ -142,8 +142,11 @@ class SearchController extends BaseController {
 			);
 			$data[] = $arr;
 		}
+		$list = array();
+		$list['type'] = $type;
+		$list['data'] = $data;
 		//var_dump($data);
-		$this->ajaxReturn($data);
+		$this->ajaxReturn($list);
 	}
 
 }//class end
