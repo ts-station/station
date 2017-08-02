@@ -16,8 +16,18 @@ class TicketmodelModel extends Model {
         return $list;
     }
     public function search($BeginStationID,$EndStationID,$NoOfRunsdate,$type,$page,$page_size){
+        $order='pd_fullprice asc';
         if($type==1){
-            $order='';
+            $order='tml_noofrunstime asc';
+        }
+        else if($type==2){
+            $order='tml_noofrunstime desc';
+        }
+        else if($type==3){
+            $order='pd_fullprice asc';
+        }
+        else if($type==4){
+            $order='pd_fullprice desc';
         }
         $map=array(
             't.tml_BeginstationID'=>$BeginStationID,
@@ -27,6 +37,7 @@ class TicketmodelModel extends Model {
         $list=$this->alias('t')
             ->join('LEFT JOIN ts_PriceDetail AS p ON p.pd_NoOfRunsID = t.tml_NoOfRunsID AND p.pd_NoOfRunsdate = t.tml_NoOfRunsdate')
             ->where($map)
+            ->order($order)
             ->page($page,$page_size)
             ->select();
         //echo $this->getlastsql();
