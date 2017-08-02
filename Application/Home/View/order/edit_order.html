@@ -42,7 +42,7 @@
 
         <volist name="passenger_list" id="p">
             <li>
-                <span></span>
+                <span class="del"></span>
             <span>
                 <div>
                     <span>{$p.cpm_purchasername}</span>
@@ -66,11 +66,12 @@
 <button class="btn-add">
     <span></span><span>添加乘客</span>
 </button>
+<input type="text" id="num" value="{$num}" style="display: none">
 <form action="pay" method="post">
     <input type="text" name="runsid" value="{$runsid}" style="display: none">
     <input type="text" name="runsdate" value="{$runsdate}" style="display: none">
     <input type="text" name="passenger" value="{$passenger}" style="display: none" id="passenger">
-    <input type="text" name="price" value="{$info['pd_fullprice']*$num}" style="display: none">
+    <input type="text" name="price" value="{$info['pd_fullprice']*$num+$num*6}" style="display: none" id="price">
     <div class="btn-a">
         <div class="btn-name">取票人
             <input type="text" placeholder="请输入您的真实姓名" name="name" id="name">
@@ -83,24 +84,44 @@
 </form>
 
 <div class="foot">
-    <span class="fl">¥</span><span class="fl">{$info['pd_fullprice']*$num}</span><span class="fl" id="btn1">明细</span><span id="btn3" class="fr">去支付</span>
+    <span class="fl">¥</span><span class="fl price">
+    <if condition="$num"> {$info['pd_fullprice']*$num+$num*6}
+        <else /> {$info.pd_fullprice}
+    </if>
+    </span><span class="fl" id="btn1">明细</span><span id="btn3" class="fr">去支付</span>
 </div>
 
 <div class="aff" style="display: none;">
     <div id="btn2"></div>
     <div>
-        <div>
-            <span class="fl">票价</span>
-            <span class="fr">¥290×1份</span>
-        </div>
-        <div>
-            <span class="fl">服务费</span>
-            <span class="fr">¥3×1份</span>
-        </div>
-        <div>
-            <span class="fl">保险</span>
-            <span class="fr">¥3×1份</span>
-        </div>
+        <if condition="$num">
+            <div>
+                <span class="fl">票价</span>
+                <span class="fr" id="price-list">¥{$info['pd_fullprice']}×{$num}份</span>
+            </div>
+            <div>
+                <span class="fl">服务费</span>
+                <span class="fr" id="price-list1">¥3×{$num}份</span>
+            </div>
+            <div>
+                <span class="fl">保险</span>
+                <span class="fr" id="price-list2">¥3×{$num}份</span>
+            </div>
+            <else />
+            <div>
+                <span class="fl">票价</span>
+                <span class="fr">¥{$info['pd_fullprice']}×1份</span>
+            </div>
+            <div>
+                <span class="fl">服务费</span>
+                <span class="fr">¥3×1份</span>
+            </div>
+            <div>
+                <span class="fl">保险</span>
+                <span class="fr">¥3×1份</span>
+            </div>
+        </if>
+
         <div>
             <span class="fr">去支付</span>
         </div>
@@ -146,7 +167,21 @@
             var runsdate='{$runsdate}';
             var passenger='{$passenger}';
             window.location.href="add_passenger?runsid="+runsid+"&runsdate="+runsdate+"&passenger="+passenger;
-        })
+        });
+        $('.del').click(function () {
+            $(this).parent().remove();
+            var price_now =  $('#price').val();
+            price_now = price_now - {$info['pd_fullprice']} - 6;
+
+            $('#price').attr('value',price_now);
+            $('.price').html(price_now);
+            var num = $('#num').val();
+            num--;
+            $('#num').attr('value',num);
+            $('#price-list').html('¥'+{$info['pd_fullprice']}+'×'+num+'份');
+            $('#price-list1').html('¥3×'+num+'份');
+            $('#price-list2').html('¥3×'+num+'份');
+        });
     })
 </script>
 </html>
