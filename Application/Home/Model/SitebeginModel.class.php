@@ -12,7 +12,7 @@ use Think\Model;
 
 class SitebeginModel extends Model {
     public function getSite(){
-        $list=$this->where(array('sset_OperateCode'=>'001'))->select();
+        $list=$this->where(array('sset_OperateCode'=>'002'))->select();
         return $list;
     }
 }
