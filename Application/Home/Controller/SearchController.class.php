@@ -49,6 +49,7 @@ class SearchController extends BaseController {
 			$this->ajaxReturn(array('errcode' => 0, 'message' => '成功', 'data' => $data));
 		}
 		$list=D('Siteset')->getSite();
+		$list_begin=D('Sitebegin')->getSite();
 		$site_list=array();
 		foreach($list as $k=>$v){
 			$arr=array(
@@ -57,8 +58,18 @@ class SearchController extends BaseController {
 			);
 			$site_list[]=$arr;
 		}
+		$site_begin=array();
+		foreach($list_begin as $k=>$v){
+			$arr=array(
+					'value'=>$v['sset_operatecode'],
+					'text'=>$v['sset_sitename'],
+			);
+			$site_begin[]=$arr;
+		}
 		$site_list= json_encode($site_list);
+		$site_begin= json_encode($site_begin);
 		$this->assign('site_list',$site_list);
+		$this->assign('site_begin',$site_begin);
 		$this->display();
 	}
 

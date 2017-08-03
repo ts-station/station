@@ -216,8 +216,16 @@ class OrderController extends BaseController
 				->where(array('o.th_CustomerID'=>$CustomerID))
 				->join('JOIN ts_Ticketmodel AS t ON o.th_NoOfRunsID = t.tml_NoOfRunsID AND o.th_NoOfRunsdate = t.tml_NoOfRunsdate')
 				->order('th_ID desc')
+				->page(1,10)
 				->select();
 		//var_dump($order_list);
+		//var_dump($order_list);
+		//echo $order_list[0]['th_date']-500;
+		foreach($order_list as $k =>$v){
+			if((time()-$v['th_date'])>5*60&&$v['th_status']==0){
+				M('Order')->where(array('th_ID'=>$v['th_id']))->save(array('th_Status'=>1));
+			}
+		}
 
 		$this->assign('order_list',$order_list);
 		$this->display();
