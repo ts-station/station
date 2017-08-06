@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>取票二维码</title>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/less/erweima.css">
+    <script src="__PUBLIC__/Home/js/jquery.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.qrcode.min.js"></script>
+    <script src="__PUBLIC__/Home/js/erweima.js"></script>
+</head>
+<body>
+<!--header start-->
+<header class="w">
+    <a href="#" onClick="javascript:history.back(-1);">&lt;</a>
+    <span>取票二维码</span>
+</header>
+<!--header end-->
+<!--content s-->
+<div class="content">
+    <!--top s-->
+        <div class="conTop">
+            <p>订单编号: 1008451223</p>
+            <p>订购时间: 2017-08-08 08:00:00</p>
+        </div>
+    <!--top e-->
+</div>
+<!--end s-->
+<div class="conEnd">
+    <p>取票二维码</p>
+    <p>取票验证码: <span id="sText">264568441</span></p>
+    <div id="code"></div>
+</div>
+<!--end e-->
+<!--content e-->
+
+</body>
+<script>
+    var sText=$("#sText").text();
+    var hRem= $("#code").height();
+    var wRem =$("#code").width();
+
+    $("#code").qrcode({
+        render: "canvas", //canvas
+        width: wRem, //宽度
+        height:hRem, //高度
+        text: sText //取票验证码
+    });
+</script>
+</html>
