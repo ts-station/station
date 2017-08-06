@@ -40,14 +40,34 @@
     </div>
 </div>
 
-<div class="foot">
+<div class="foot" >
     <span class="fl">¥</span><span class="fl">{$price}</span><span class="fl">微信支付</span><span id="btn1" class="fr" onclick="callpay()">去支付</span>
 </div>
 
 </body>
 <script src="__PUBLIC__/Home/js/common.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.js"></script>
 
 <script>
+    //var m = {$m};//传个分钟数到这里
+    //var s = {$s};
+    /*function showtime(){
+        document.getElementById('minute').innerHTML = m;
+        document.getElementById('second').innerHTML = s;
+        s = s-1;
+        if(s<0){
+            m = m -1;
+            s = 59
+        }
+        if(m<0){
+            //window.location='http://www.ewceo.com';//倒计时结束跳转到www.ewceo.com
+            //window.location.href="time_up?orderid="+{$order_id};
+        }
+    }
+    clearInterval(settime);
+    var settime = setInterval(function(){
+        showtime();
+    },1000);*/
     (function() {
         var m = {$m};//传个分钟数到这里
         var s = {$s};
@@ -61,7 +81,7 @@
             }
             if(m<0){
                 //window.location='http://www.ewceo.com';//倒计时结束跳转到www.ewceo.com
-                window.location.href="time_up?order_id="+{$o_id};
+                window.location.href="time_up?orderid={$o_id}";
             }
         }
         clearInterval(settime);

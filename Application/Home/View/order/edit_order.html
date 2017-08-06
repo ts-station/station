@@ -20,7 +20,7 @@
     <div>
         <div></div>
         <div>
-            <span>{$info.tml_busmodel}</span><span>班次267</span>
+            <span>{$info.tml_busmodel}</span><span>班次{$info.tml_noofrunsid}</span>
         </div>
         <div>
             <span>服务费：¥3.0元/张</span><span>服务费：¥3.0元/张</span>
@@ -142,18 +142,18 @@
         })
         $("#btn3").click(function () {
             var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-            if(!myreg.test($("#tel").val()))
+            if(!myreg.test($("#tel").val())&&$("#tel").val())
             {
                 alert('请输入有效的手机号码！');
                 return false;
             }
             var namereg = /^[\u4e00-\u9fa5]{2,4}$/i;
-            if (namereg.test($("#name").val()) === false) {
+            if (namereg.test($("#name").val()) === false&&$("#name").val()) {
                 alert('请输入正确的姓名');
                 return false;
             }
 
-            if(!$("#passenger").val())
+            if(!$("#passenger").val()&&(!$("#tel").val()||!$("#name").val()))
             {
                 alert('请添加乘客！');
                 return false;

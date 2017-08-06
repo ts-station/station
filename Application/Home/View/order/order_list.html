@@ -47,6 +47,7 @@
     </div>
     &lt;!&ndash;con e&ndash;&gt;
 </div>-->
+<div id="order-content">
 <volist name="order_list" id="f">
     <div class="content">
         <!--top s-->
@@ -84,17 +85,18 @@
         <!--con e-->
     </div>
 </volist>
+</div>
 
 <!--content e-->
 <!--footer s-->
 <div class="but clearfix">
-    <button class="fl">
+    <button class="fl all-type">
         <span>全部</span>
     </button>
-    <button class="fl">
+    <button class="fl not-paid">
         <span>未支付</span>
     </button>
-    <button class="fr">
+    <button class="fr not-go">
         <span>未出行</span>
     </button>
 </div>
@@ -103,10 +105,85 @@
 <script src="__PUBLIC__/Home/js/jquery.js"></script>
 <script>
     $(document).ready(function(){
-        $(".order-list").click(function(){
+        $("#order-content").on('click','.order-list', function() {
             var orderid=$(this).attr('orderid');
             window.location.href="order_info?orderid="+orderid;
         });
+        $(".all-type").click(function(){
+            type = 99;
+            page=1;
+            $('#order-content').html('');
+            loadMore();
+        });
+        $(".not-paid").click(function(){
+            type = 0;
+            page=1;
+            $('#order-content').html('');
+            loadMore();
+        });
+        $(".not-go").click(function(){
+            type = 2;
+            page=1;
+            $('#order-content').html('');
+            loadMore();
+        });
     });
+    var isloading = false;
+    var winH = $(window).height();
+    $(window).bind("scroll", function () {
+        var pageH = $(document.body).height();
+        var scrollT = $(window).scrollTop(); //滚动条top
+        var aa = (pageH-winH-scrollT)/winH;
+        if(aa < 0.02 && !isloading) {
+            isloading = true;
+            loadMore();
+        }
+    });
+    var page= 2;
+    var type=99;
+    function loadMore(){
+        var list = new Array();
+        var obj = {
+            "uid":"{$uid}",
+            "page":page,
+            "type":type,
+        };
+        $.ajax({
+            type:'post',
+            url:"ajax_list",
+            data:obj,
+            dataType:'json',
+            success:function(result){
+                console.log(result);
+                //console.log(result);
+                $.each( result, function(i , n){
+                    var str_status='';
+                    if (n.th_status==1) {
+                        str_status += '<div class="con-top-r fr" style="color: #989898">已废弃</div>';
+                    }
+                    else if(n.th_status==2){
+                        str_status += '<div class="con-top-r fr" style="color: #989898">订票成功</div>';
+                    }
+                    else{
+                        str_status += '<div class="con-top-r fr">待支付</div>';
+                    }
+                    var str = ' <div class="content"><div class="con-top clearfix"> <div class="con-top-l fl">固定班</div>' +
+                    str_status+ '</div><div class="con-con order-list" orderid="'+ n.th_id +'">' +
+                    '<div><span>'+n.tml_beginstation+'</span><span></span><span>'+n.tml_endstation+'</span></div><div><span>发车时间:</span>' +
+                    '<span>'+n.th_noofrunsdate+'</span><span>'+n.tml_noofrunstime+'发车</span></div><div style="text-align: right">' +
+                    '<span>共1张票</span><span>服务费￥3.00</span><span>金额<span>￥</span><span>'+n.th_pricetotal+'</span></span>' +
+                    '</div></div></div>';
+                    $('#order-content').append(str);
+                });
+                page++;
+                isloading = false;
+            }
+        });
+
+    }
+
+
+
+
 </script>
 </html>

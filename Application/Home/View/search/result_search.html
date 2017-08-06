@@ -53,7 +53,7 @@
                             <div>
                                 <span>{$f['leave_seats']}张</span>
                                 <span></span>
-                                <span>固定班267</span>
+                                <span>班次{$f.runsid}</span>
                                 <span>携童3张</span>
                             </div>
                             <div>
@@ -93,7 +93,7 @@
                             <div>
                                 <span>已售完</span>
                                 <span></span>
-                                <span>固定班267</span>
+                                <span>班次{$f.runsid}</span>
                                 <span>携童3张</span>
                             </div>
                             <div>
@@ -216,12 +216,14 @@
     });
     var load_flag=false;
     var isloading = false;
+    var winH = $(window).height();
     $(window).bind("scroll", function () {
-        if ($(document).scrollTop() + $(window).height()
-                > $(document).height() - 10 && !isloading) {
+        var pageH = $(document.body).height();
+        var scrollT = $(window).scrollTop(); //滚动条top
+        var aa = (pageH-winH-scrollT)/winH;
+        if(aa < 0.02 && !isloading) {
             isloading = true;
             loadMore();
-            alert();
         }
     });
 
@@ -243,9 +245,8 @@
             success:function(result){
                 var type = result.type;
                 var list = result.data;
-                //console.log(result);
+                console.log(result);
                 $.each( list, function(i , n){
-                    console.log(n);
                     var str= '';
                     if(n.leave_seats == 0){
                        str +=  ' <li class="none-color" runsid="'+ n.runsid+'" runsdate="'+ n.runsdate+'" >';
@@ -254,8 +255,6 @@
                        str +=  ' <li class="have-color" runsid="'+ n.runsid+'" runsdate="'+ n.runsdate+'" >';
 
                     }
-                    console.log(n.leave_seats );
-                    console.log(n.time );
                     str+= '<div class="banxin"><div>'+ n.time +'</div><div> <div><span>' +
                             '</span><span> '+ n.begin +' </span></div><div><span></span><span> '+ n.busmodel +' </span></div>' +
                             '</div><div><span>';
@@ -265,12 +264,13 @@
                     else{
                         str += n.leave_seats+ '张票';
                     }
-                    str +='</span><span></span><span>固定班267</span><span>携童3张</span></div>' +
+                    str +='</span><span></span><span>班次'+n.runsid+'</span><span>携童3张</span></div>' +
                             '<div><div><span></span><span>  '+ n.end +' </span></div><div><span>¥</span><span>'+ n.price +
                             '</span></div></div></div></li>';
                     $('.have').append(str);
                 });
                 page++;
+                isloading = false;
             }
         });
 
