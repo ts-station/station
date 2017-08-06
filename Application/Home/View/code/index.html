@@ -22,15 +22,15 @@
 <div class="content">
     <!--top s-->
         <div class="conTop">
-            <p>订单编号: 1008451223</p>
-            <p>订购时间: 2017-08-08 08:00:00</p>
+            <p>订单编号: {$info.th_orderid}</p>
+            <p>订购时间: {:date('Y-m-d H:i:s',$info['th_date'])}</p>
         </div>
     <!--top e-->
 </div>
 <!--end s-->
 <div class="conEnd">
     <p>取票二维码</p>
-    <p>取票验证码: <span id="sText">264568441</span></p>
+    <p>取票验证码: <span id="sText">{$info.th_orderid}</span></p>
     <div id="code"></div>
 </div>
 <!--end e-->
