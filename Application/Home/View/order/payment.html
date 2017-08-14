@@ -101,7 +101,7 @@
                     //alert(res);
                     if(res.err_msg == "get_brand_wcpay_request:ok"){
                         alert("支付成功!");
-                        window.location.href="http://m.blog.csdn.net/article/details?id=72765676";
+                        window.location.href="payed?orderid={$o_id}";
                     }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
                         alert("用户取消支付!");
                     }else{

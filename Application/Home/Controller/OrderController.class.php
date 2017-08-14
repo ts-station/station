@@ -207,6 +207,7 @@ class OrderController extends BaseController
 
 		$this->display();
 	}
+
 	/**
 	 *  订单列表
 	 */
@@ -227,9 +228,36 @@ class OrderController extends BaseController
 			}
 		}
 
+		$this->assign('uid',$CustomerID);
 		$this->assign('order_list',$order_list);
 		$this->display();
 	}
+	/**
+	 *  订单列表
+	 */
+	public function ajax_list(){
+		$CustomerID =  I('uid');
+		$page = I('page');
+		$type = I('type');
+		$map = array('o.th_CustomerID'=>$CustomerID);
+		if($type!=99){
+			$map['o.th_Status'] = $type;
+		}
+		$order_list=D('Order')->alias('o')
+				->where($map)
+				->join('JOIN ts_Ticketmodel AS t ON o.th_NoOfRunsID = t.tml_NoOfRunsID AND o.th_NoOfRunsdate = t.tml_NoOfRunsdate')
+				->order('th_ID desc')
+				->page($page,10)
+				->select();
+		foreach($order_list as $k =>$v){
+			if((time()-$v['th_date'])>5*60&&$v['th_status']==0){
+				M('Order')->where(array('th_ID'=>$v['th_id']))->save(array('th_Status'=>1));
+			}
+		}
+		$sql = D('Order')->getLastSql();
+		$this->ajaxReturn($order_list);
+	}
+
 	/**
 	 *  订单详情
 	 */
@@ -261,8 +289,6 @@ class OrderController extends BaseController
 		else{
 			$this->display('order_details');
 		}
-
-
 	}
 
 	//支付超时 0为未支付 1为支付超时  2为已支付
@@ -270,6 +296,16 @@ class OrderController extends BaseController
 		$orderid = I('orderid');
 		//echo $orderid;
 		$data = array('th_Status'=>1);
+		D('Order')->where(array('th_ID'=>$orderid))->save($data);
+		$this->redirect('order_list');
+	}
+	/**
+	 *  支付成功
+	 */
+	public function payed(){
+		$orderid = I('orderid');
+		//echo $orderid;
+		$data = array('th_Status'=>2);
 		D('Order')->where(array('th_ID'=>$orderid))->save($data);
 		$this->redirect('order_list');
 	}
